@@ -1,0 +1,14 @@
+select * from T_ITEM;
+
+select * from T_SELLING;
+
+select * from T_STATUS;
+
+--クエリ1
+
+select IT.item_no,IT.item_name,IT.cost_price,SE.selling_price,ST.item_status
+from T_ITEM IT
+left join T_SELLING SE
+on IT.item_no = SE.item_no
+left join T_STATUS ST
+on IT.item_no = ST.item_no;
