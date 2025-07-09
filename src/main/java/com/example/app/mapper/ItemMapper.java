@@ -1,6 +1,14 @@
 package com.example.app.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
+
+import com.example.app.dto.Item;
+
+@Mapper
 public interface ItemMapper {
+	
+	//  商品一覧表示
+	public Item showItemList();
 	
 	//	商品追加
 	public void addItem(String itemNumber, String itemName, Integer costPrice, Integer sellingPrice) ;
