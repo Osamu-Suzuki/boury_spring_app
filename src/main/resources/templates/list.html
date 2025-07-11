@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>list</title>
@@ -12,10 +12,13 @@
 			<th>原価</th>
 			<th>販売価格</th>
 		</tr>
-			<tr></tr>
-			<tr></tr>
-			<tr></tr>
-			<tr></tr>
+		<tr th:each="item : ${shopItems}">
+		    <td th:text="${item.itemNumber}">商品番号</td>
+            <td th:text="${item.itemName}">商品名</td>
+            <td th:text="${item.costPrice}">原価</td>
+            <td th:text="${item.sellingPrice}">販売価格</td>
+		</tr>
+			
 	</table>
 </body>
 </html>
