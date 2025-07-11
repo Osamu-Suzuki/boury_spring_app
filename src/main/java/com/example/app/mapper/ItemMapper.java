@@ -1,5 +1,7 @@
 package com.example.app.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.app.dto.Item;
@@ -8,7 +10,7 @@ import com.example.app.dto.Item;
 public interface ItemMapper {
 	
 	//  商品一覧表示
-	public Item showItemList();
+	public List<Item> showItemList();
 	
 	//	商品追加
 	public void addItem(String itemNumber, String itemName, Integer costPrice, Integer sellingPrice) ;

@@ -3,6 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-	<mapper namespace="com.example.app.mapper.ItemMapper">
-  
-	</mapper>
+<mapper namespace="com.example.app.mapper.ItemMapper">
+
+	
+	<select id="showItemList" resultType="com.example.app.dto.Item">
+
+		select IT.item_no,IT.item_name,IT.cost_price,SE.selling_price,ST.item_status
+		from T_ITEM IT
+		left join T_SELLING SE
+		on IT.item_no = SE.item_no
+		left join T_STATUS ST
+		on IT.item_no = ST.item_no;
+		
+	</select>
+	
+</mapper>
