@@ -1,15 +1,30 @@
 package com.example.app.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.app.dto.Item;
+import com.example.app.mapper.ItemMapper;
+
+
 
 @Controller
 public class ItemController {
 	
+	@Autowired
+	ItemMapper itemMapper;
+	
 	//	一覧を表示
 	@GetMapping("/list")
-	public String showList() {
+	public String showList(Model model) {
+		List<Item> showItems = itemMapper.showItemList();
+		System.out.println(showItems);
+		model.addAttribute("showItems",showItems);
 		return "list";
 	}
 
