@@ -23,7 +23,6 @@ public class ItemController {
 	@GetMapping("/list")
 	public String showList(Model model) {
 		List<Item> showItems = itemMapper.showItemList();
-		System.out.println(showItems);
 		model.addAttribute("showItems",showItems);
 		return "list";
 	}
@@ -32,7 +31,7 @@ public class ItemController {
 	@PostMapping("/add")
 	public String addItemToDatabase(String itemNumber, String itemName, Integer costPrice, Integer sellingPrice) {
 		//	在庫商品登録と値付け
-
+		itemMapper.addItem(itemNumber, itemName, costPrice, sellingPrice);
 		//	リダイレクト：一覧表示ページへ
 		return "redirect:/list";
 	}
