@@ -17,4 +17,14 @@
 		
 	</select>
 	
+	<insert id="addItem" parameterType="com.example.app.dto.Item">
+	
+		insert into T_ITEM(item_no,item_name,cost_price)
+		values (#{itemNo},#{itemName},#{costPrice});
+		
+		insert into T_SELLING(item_no,selling_price)
+		values (#{itemNo},#{SellingPrice});
+		
+	</insert>
+	
 </mapper>
