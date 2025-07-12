@@ -13,7 +13,7 @@
 		left join T_SELLING SE
 		on IT.item_no = SE.item_no
 		left join T_STATUS ST
-		on IT.item_no = ST.item_no;
+		on IT.item_no = ST.item_no
 		
 	</select>
 	
