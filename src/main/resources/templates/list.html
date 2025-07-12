@@ -6,19 +6,26 @@
 </head>
 <body>
 	<table>
+	
 		<tr>
 			<th>商品番号</th>
 			<th>商品名</th>
 			<th>原価</th>
 			<th>販売価格</th>
 		</tr>
-		<tr th:each="item : ${shopItems}">
-		    <td th:text="${item.itemNumber}">商品番号</td>
-            <td th:text="${item.itemName}">商品名</td>
-            <td th:text="${item.costPrice}">原価</td>
-            <td th:text="${item.sellingPrice}">販売価格</td>
+		<tr th:each="item : ${showItems}">
+		    <td th:text="${item.itemNo}"></td>
+            <td th:text="${item.itemName}"></td>
+            <td th:text="${item.costPrice}"></td>
+            <td th:text="${item.sellingPrice}"></td>
 		</tr>
 			
 	</table>
+	
+	<a href="/home">
+		<button>ホーム</button>
+	</a>
+	
+	
 </body>
 </html>

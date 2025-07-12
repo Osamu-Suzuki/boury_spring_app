@@ -7,8 +7,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Item {
 	
-	private String itemNumber;
+	private String itemNo;
 	private String itemName;
 	private Integer costPrice;
 	private Integer sellingPrice;
+	
 }
