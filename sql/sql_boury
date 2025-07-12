@@ -4,7 +4,7 @@ select * from T_SELLING;
 
 select * from T_STATUS;
 
---クエリ1
+select文1
 
 select IT.item_no,IT.item_name,IT.cost_price,SE.selling_price,ST.item_status
 from T_ITEM IT
@@ -12,3 +12,13 @@ left join T_SELLING SE
 on IT.item_no = SE.item_no
 left join T_STATUS ST
 on IT.item_no = ST.item_no;
+
+insert文1
+
+insert into T_ITEM(item_no,item_name,cost_price)
+values ('A006','どこの馬の骨かわからない馬の骨',1800);
+
+insert文2
+
+insert into T_SELLING(item_no,selling_price)
+values ('A006',120000);
