@@ -33,3 +33,9 @@ delete文2
 
 delete from T_SELLING
 where item_no = 'A007';
+
+update文
+
+update T_ITEM
+set item_name = '神の象の像'
+where item_no = 'A011';
