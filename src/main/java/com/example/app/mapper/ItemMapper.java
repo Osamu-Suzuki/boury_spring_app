@@ -21,6 +21,8 @@ public interface ItemMapper {
 	public void deleteItemSelling(String itemNo);
 	
 	//  商品登録内容変更
+	public void chageItemInfo(Item item);
+	public void chageSellingInfo(Item item);
 	
 	//	商品番号の変更
 	public void changeItemNumber(String itemNo) ;
