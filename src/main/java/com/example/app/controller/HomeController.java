@@ -12,4 +12,10 @@ public class HomeController {
 		return "home";		
 	}
 	
+	// 商品追加ページを表示
+	@GetMapping("/add")
+	public String showItemAddPage() {
+		return "itemAdd";
+	}
+	
 }
