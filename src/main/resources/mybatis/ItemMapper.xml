@@ -14,6 +14,7 @@
 		on IT.item_no = SE.item_no
 		left join T_STATUS ST
 		on IT.item_no = ST.item_no
+		order by IT.item_no
 		
 	</select>
 	
@@ -29,5 +30,18 @@
 		values (#{itemNo},#{sellingPrice})
 		
 	</insert>
+	
+	<delete id="deleteItem" parameterType="String">
+	
+		delete from T_ITEM
+		where item_no = #{itemNo}
+		
+	</delete>
+	<delete id="deleteItemSelling" parameterType="String">
+	
+		delete from T_SELLING
+		where item_no = #{itemNo}
+		
+	</delete>
 	
 </mapper>

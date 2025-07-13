@@ -17,12 +17,13 @@ public interface ItemMapper {
 	public void addItemSelling(Item item) ;
 	
 	//	商品取消
-	public void deleteItem(String itemNumber);
+	public void deleteItem(String itemNo);
+	public void deleteItemSelling(String itemNo);
 	
 	//  商品登録内容変更
 	
 	//	商品番号の変更
-	public void changeItemNumber(String itemNumber) ;
+	public void changeItemNumber(String itemNo) ;
 	
 	//	商品名の変更
 	public void changeItemName(String itemName);
