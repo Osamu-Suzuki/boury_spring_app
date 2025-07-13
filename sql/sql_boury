@@ -22,3 +22,13 @@ insert文2
 
 insert into T_SELLING(item_no,selling_price)
 values ('A006',120000);
+
+delete文1
+
+delete from T_ITEM
+where item_no = 'A007';
+
+delete文2
+
+delete from T_SELLING
+where item_no = 'A007';
