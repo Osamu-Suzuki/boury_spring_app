@@ -24,4 +24,10 @@ public class HomeController {
 		return "itemDelete";
 	}
 	
+	// 商品変更ページを表示
+	@GetMapping("/change")
+	public String showChangePage() {
+		return "itemChange";
+	}
+	
 }
