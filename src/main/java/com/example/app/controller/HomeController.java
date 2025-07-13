@@ -18,4 +18,10 @@ public class HomeController {
 		return "itemAdd";
 	}
 	
+	// 商品取消ページを表示
+	@GetMapping("/delete")
+	public String showDeletePage() {
+		return "itemDelete";
+	}
+	
 }
