@@ -6,12 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.app.dto.Item;
 import com.example.app.mapper.ItemMapper;
-
-
 
 @Controller
 public class ItemController {
@@ -28,10 +27,12 @@ public class ItemController {
 	}
 
 	//	商品の追加
-	@PostMapping("/add")
-	public String addItemToDatabase(String itemNumber, String itemName, Integer costPrice, Integer sellingPrice) {
+	@PostMapping("/additem")
+	public String addItemToDatabase(Model model,
+		@ModelAttribute Item item) {
 		//	在庫商品登録と値付け
-		itemMapper.addItem(itemNumber, itemName, costPrice, sellingPrice);
+		itemMapper.addItem(item);
+		itemMapper.addItemSelling(item);
 		//	リダイレクト：一覧表示ページへ
 		return "redirect:/list";
 	}
