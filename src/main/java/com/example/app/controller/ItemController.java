@@ -38,7 +38,7 @@ public class ItemController {
 	}
 	
 	//	商品情報の取消
-	@GetMapping("/delete")
+	@GetMapping("/deleteitem")
 	public String deleteItemFromDatabase(String itemNumber) {
 		//	リダイレクト：一覧表示ページへ
 		return "redirect:/list";
