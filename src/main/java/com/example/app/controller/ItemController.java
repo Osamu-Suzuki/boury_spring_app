@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.app.dto.Item;
 import com.example.app.mapper.ItemMapper;
@@ -38,8 +39,11 @@ public class ItemController {
 	}
 	
 	//	商品情報の取消
-	@GetMapping("/deleteitem")
-	public String deleteItemFromDatabase(String itemNumber) {
+	@PostMapping("/deleteitem")
+	public String deleteItemFromDatabase(Model model,
+		@RequestParam String itemNo) {
+		itemMapper.deleteItemSelling(itemNo);
+		itemMapper.deleteItem(itemNo);
 		//	リダイレクト：一覧表示ページへ
 		return "redirect:/list";
 	}
