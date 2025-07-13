@@ -15,30 +15,29 @@ import com.example.app.mapper.ItemMapper;
 
 @Controller
 public class ItemController {
-	
+
 	@Autowired
 	ItemMapper itemMapper;
-	
-	//	一覧を表示
+
+	// 一覧を表示
 	@GetMapping("/list")
 	public String showList(Model model) {
 		List<Item> showItems = itemMapper.showItemList();
-		model.addAttribute("showItems",showItems);
+		model.addAttribute("showItems", showItems);
 		return "list";
 	}
 
-	//	商品の追加
+	// 商品の追加
 	@PostMapping("/additem")
-	public String addItemToDatabase(Model model,
-		@ModelAttribute Item item) {
-		//	在庫商品登録と値付け
+	public String addItemToDatabase(Model model, @ModelAttribute Item item) {
+		// 在庫商品登録と値付け
 		itemMapper.addItem(item);
 		itemMapper.addItemSelling(item);
-		//	リダイレクト：一覧表示ページへ
+		// リダイレクト：一覧表示ページへ
 		return "redirect:/list";
 	}
-	
-	//	商品情報の取消
+
+	// 商品情報の取消
 	@PostMapping("/deleteitem")
 	public String deleteItemFromDatabase(Model model,
 		@RequestParam String itemNo) {
@@ -48,4 +47,13 @@ public class ItemController {
 		return "redirect:/list";
 	}
 
+	// 商品情報の変更
+	@PostMapping("/changeitem")
+	public String changeItemData(Model model,
+		@ModelAttribute Item item) {
+		itemMapper.chageItemInfo(item);	
+		itemMapper.chageSellingInfo(item);	
+		//	リダイレクト：一覧表示ページへ
+		return "redirect:/list";
+	}
 }
