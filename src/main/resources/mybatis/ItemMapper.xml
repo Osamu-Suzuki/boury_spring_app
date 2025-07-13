@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.app.mapper.ItemMapper">
+
+
+	<select id="showItemList" resultType="com.example.app.dto.Item">
+
+		select
+		IT.item_no,IT.item_name,IT.cost_price,SE.selling_price,ST.item_status
+		from T_ITEM IT
+		left join T_SELLING SE
+		on IT.item_no = SE.item_no
+		left
+		join T_STATUS ST
+		on IT.item_no = ST.item_no
+		order by IT.item_no
+
+	</select>
+
+	<insert id="addItem" parameterType="com.example.app.dto.Item">
+
+		insert into
+		T_ITEM(item_no,item_name,cost_price)
+		values
+		(#{itemNo},#{itemName},#{costPrice})
+
+	</insert>
+	<insert id="addItemSelling"
+		parameterType="com.example.app.dto.Item">
+
+		insert into T_SELLING(item_no,selling_price)
+		values
+		(#{itemNo},#{sellingPrice})
+
+	</insert>
+
+	<delete id="deleteItem" parameterType="String">
+
+		delete from T_ITEM
+		where
+		item_no = #{itemNo}
+
+	</delete>
+	<delete id="deleteItemSelling" parameterType="String">
+
+		delete from
+		T_SELLING
+		where item_no = #{itemNo}
+
+	</delete>
+
+	<update id="chageItemInfo" parameterType="com.example.app.dto.Item">
+	
+		update T_ITEM
+		set item_name = #{itemName},
+			cost_price = #{costPrice}
+		where item_no = #{itemNo}
+		
+	</update>
+	<update id="chageSellingInfo" parameterType="com.example.app.dto.Item">
+	
+		update T_SELLING
+		set selling_price = #{sellingPrice}
+		where item_no = #{itemNo}
+		
+	</update>
+
+</mapper>
