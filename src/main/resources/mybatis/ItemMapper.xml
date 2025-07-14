@@ -52,20 +52,38 @@
 
 	</delete>
 
-	<update id="chageItemInfo" parameterType="com.example.app.dto.Item">
-	
-		update T_ITEM
-		set item_name = #{itemName},
-			cost_price = #{costPrice}
-		where item_no = #{itemNo}
-		
+	<!-- T_ITEMテーブルの更新 -->
+	<update id="chageItemInfo"
+		parameterType="com.example.app.dto.Item">
+		UPDATE
+		T_ITEM
+		<set>
+			<!-- itemNameがnullでも空文字でもない場合だけ更新 -->
+			<if test="itemName != null and itemName != ''">
+				item_name = #{itemName},
+			</if>
+			<!-- costPriceがnullではない場合だけ更新 -->
+			<if test="costPrice != null">
+				cost_price = #{costPrice},
+			</if>
+		</set>
+		WHERE
+		item_no = #{itemNo}
 	</update>
-	<update id="chageSellingInfo" parameterType="com.example.app.dto.Item">
-	
-		update T_SELLING
-		set selling_price = #{sellingPrice}
-		where item_no = #{itemNo}
-		
+
+	<!-- T_SELLINGテーブルの更新 -->
+	<update id="chageSellingInfo"
+		parameterType="com.example.app.dto.Item">
+		UPDATE
+		T_SELLING
+		<set>
+			<!-- sellingPriceがnullではない場合だけ更新 -->
+			<if test="sellingPrice != null">
+				selling_price = #{sellingPrice},
+			</if>
+		</set>
+		WHERE
+		item_no = #{itemNo}
 	</update>
 
 </mapper>
