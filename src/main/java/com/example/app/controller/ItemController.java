@@ -52,7 +52,11 @@ public class ItemController {
 	public String changeItemData(Model model,
 		@ModelAttribute Item item) {
 		itemMapper.chageItemInfo(item);	
-		itemMapper.chageSellingInfo(item);	
+		
+		// sellingPriceがnullでない場合だけ、sellingPriceの更新メソッドを呼び出す
+		if (item.getSellingPrice() != null) {
+			itemMapper.chageSellingInfo(item);	
+		}
 		//	リダイレクト：一覧表示ページへ
 		return "redirect:/list";
 	}
