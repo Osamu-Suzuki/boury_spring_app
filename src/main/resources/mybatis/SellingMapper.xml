@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.app.mapper.SellingMapper">
+
+	<insert id="addStatusToDatabase" parameterType="com.example.app.dto.Selling">
+
+		insert into
+		T_STATUS(item_no,item_status)
+		values
+		(#{itemNo},#{itemStatus})
+
+	</insert>
+		
+	<update id="changeStatus" parameterType="com.example.app.dto.Selling">
+		update T_STATUS
+		set item_status = #{itemStatus}
+		where item_no = #{itemNo}
+	</update>
+
+
+</mapper>
