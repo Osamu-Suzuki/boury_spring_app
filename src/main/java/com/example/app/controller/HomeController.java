@@ -30,4 +30,10 @@ public class HomeController {
 		return "itemChange";
 	}
 	
+	// 販売状況登録ページを表示
+	@GetMapping("/selling")
+	public String showSellingPage() {
+		return "selling";
+	}
+	
 }

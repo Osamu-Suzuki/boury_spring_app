@@ -24,16 +24,4 @@ public interface ItemMapper {
 	public void chageItemInfo(Item item);
 	public void chageSellingInfo(Item item);
 	
-	//	商品番号の変更
-	public void changeItemNumber(String itemNo) ;
-	
-	//	商品名の変更
-	public void changeItemName(String itemName);
-	
-	//	仕入れ価格の変更
-	public void changeCostPrice(Integer costPrice);
-	
-	//	販売価格の変更
-	public void changeSellingPrice(Integer sellingPrice);
-	
 }
