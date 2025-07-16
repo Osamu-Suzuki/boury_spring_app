@@ -12,12 +12,14 @@
 			<th>商品名</th>
 			<th>原価</th>
 			<th>販売価格</th>
+			<th>販売状況</th>
 		</tr>
 		<tr th:each="item : ${showItems}">
 		    <td th:text="${item.itemNo}"></td>
             <td th:text="${item.itemName}"></td>
             <td th:text="${item.costPrice}"></td>
             <td th:text="${item.sellingPrice}"></td>
+            <td th:text="${item.itemStatus}"></td>
 		</tr>
 			
 	</table>
