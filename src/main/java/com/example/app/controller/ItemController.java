@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.app.dto.All;
 import com.example.app.dto.Item;
 import com.example.app.mapper.ItemMapper;
 
@@ -22,17 +23,16 @@ public class ItemController {
 	// 一覧を表示
 	@GetMapping("/list")
 	public String showList(Model model) {
-		List<Item> showItems = itemMapper.showItemList();
+		List<All> showItems = itemMapper.showItemList();
 		model.addAttribute("showItems", showItems);
-		return "list";
+		return "allList";
 	}
 
 	// 商品の追加
 	@PostMapping("/additem")
 	public String addItemToDatabase(Model model, @ModelAttribute Item item) {
-		// 在庫商品登録と値付け
+		// 在庫商品登録
 		itemMapper.addItem(item);
-		itemMapper.addItemSelling(item);
 		// リダイレクト：一覧表示ページへ
 		return "redirect:/list";
 	}
@@ -41,7 +41,6 @@ public class ItemController {
 	@PostMapping("/deleteitem")
 	public String deleteItemFromDatabase(Model model,
 		@RequestParam String itemNo) {
-		itemMapper.deleteItemSelling(itemNo);
 		itemMapper.deleteItem(itemNo);
 		//	リダイレクト：一覧表示ページへ
 		return "redirect:/list";
@@ -53,10 +52,6 @@ public class ItemController {
 		@ModelAttribute Item item) {
 		itemMapper.chageItemInfo(item);	
 		
-		// sellingPriceがnullでない場合だけ、sellingPriceの更新メソッドを呼び出す
-		if (item.getSellingPrice() != null) {
-			itemMapper.chageSellingInfo(item);	
-		}
 		//	リダイレクト：一覧表示ページへ
 		return "redirect:/list";
 	}

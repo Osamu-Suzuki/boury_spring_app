@@ -10,6 +10,5 @@ public class Item {
 	private String itemNo;
 	private String itemName;
 	private Integer costPrice;
-	private Integer sellingPrice;
 	
 }
