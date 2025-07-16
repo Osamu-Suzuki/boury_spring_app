@@ -5,19 +5,27 @@
 
 <mapper namespace="com.example.app.mapper.SellingMapper">
 
-	<insert id="addStatusToDatabase" parameterType="com.example.app.dto.Selling">
+	<insert id="addSellingToDatabase" parameterType="com.example.app.dto.Selling">
 
-		insert into
-		T_STATUS(item_no,item_status)
+		insert into T_SELLING(item_no,selling_price)
 		values
-		(#{itemNo},#{itemStatus})
+		(#{itemNo},#{sellingPrice})
 
 	</insert>
-		
-	<update id="changeStatus" parameterType="com.example.app.dto.Selling">
-		update T_STATUS
-		set item_status = #{itemStatus}
+	
+	<delete id="deleteSelling" parameterType="String">
+
+		delete from T_SELLING
 		where item_no = #{itemNo}
+
+	</delete>
+	
+	<update id="chageSelling" parameterType="com.example.app.dto.Selling">
+		
+		update T_SELLING
+		set	selling_price = #{sellingPrice},
+		where item_no = #{itemNo}
+		
 	</update>
 
 

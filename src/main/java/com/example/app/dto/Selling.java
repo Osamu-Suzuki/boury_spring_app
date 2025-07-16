@@ -8,6 +8,6 @@ import lombok.RequiredArgsConstructor;
 public class Selling {
 	
 	private String itemNo;
-	private String itemStatus;
+	private Integer sellingPrice;
 	
 }

@@ -7,10 +7,13 @@ import com.example.app.dto.Selling;
 @Mapper
 public interface SellingMapper {
 	
-	//	販売状況の追加
-	public void addStatusToDatabase(Selling selling);
+	// 商品の値付け
+	public void addSelling(Selling selling) ;
 	
-	//	販売状況の変更
-	public void changeStatus(Selling selling);
+	// 商品お値付け削除
+	public void deleteSelling(String itemNo);
+	
+	// 商品の販売価格変更
+	public void chageSelling(Selling selling);
 	
 }
