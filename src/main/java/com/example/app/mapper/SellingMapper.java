@@ -8,7 +8,7 @@ import com.example.app.dto.Selling;
 public interface SellingMapper {
 	
 	// 商品の値付け
-	public void addSelling(Selling selling) ;
+	public void addSellingToDatabase(Selling selling) ;
 	
 	// 商品お値付け削除
 	public void deleteSelling(String itemNo);
