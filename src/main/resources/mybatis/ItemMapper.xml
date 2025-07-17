@@ -40,8 +40,7 @@
 	<update id="chageItemName" parameterType="com.example.app.dto.Item">
 		
 		update T_ITEM
-		set item_name = #{itemName},
-			cost_price = #{costPrice}
+		set item_name = #{itemName}
 		where item_no = #{itemNo}
 		
 	</update>

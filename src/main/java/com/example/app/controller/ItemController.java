@@ -50,8 +50,12 @@ public class ItemController {
 	@PostMapping("/changeitem")
 	public String changeItemData(Model model,
 		@ModelAttribute Item item) {
-		itemMapper.chageItemInfo(item);	
-		
+		if(item.getItemName() != null) {
+			itemMapper.chageItemName(item);				
+		}
+		if(item.getCostPrice() != null) {
+			itemMapper.chageItemCostPrice(item);						
+		}
 		//	リダイレクト：一覧表示ページへ
 		return "redirect:/list";
 	}

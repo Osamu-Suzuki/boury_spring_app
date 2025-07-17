@@ -19,7 +19,11 @@ public interface ItemMapper {
 	//	商品取消
 	public void deleteItem(String itemNo);
 	
-	//  商品登録内容変更
-	public void chageItemInfo(Item item);
+	//  商品名変更
+	public void chageItemName(Item item);	
+
+	//  商品原価変更
+	public void chageItemCostPrice(Item item);
+
 	
 }
