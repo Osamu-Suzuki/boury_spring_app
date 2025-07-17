@@ -2,27 +2,26 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>add</title>
+<title>selling</title>
 </head>
 <body>
+
+	<h2>販売価格の登録</h2>
 	
-	<form action="/additem" method="post">
-		<label>商品番号</label>
-		<input type="text" name="itemNo"/>
-		<label>商品名</label>
-		<input type="text" name="itemName"/>
-		<label>原価</label>
-		<input type="text" name="costPrice"/>
+	<form action="/addselling" method="post">
+			<label for="">商品番号</label>
+			<input type="text" name="itemNo"/>
+			<label for="">販売価格</label>
+			<input type="text" name="sellingPrice"/>
 		<input type="submit" value="登録"/>
 	</form>
-
+	
 	<a href="/home">
 		<button>ホーム</button>
 	</a>
 	<a href="/list">
 		<button>一覧</button>
 	</a>
-	
 	
 </body>
 </html>

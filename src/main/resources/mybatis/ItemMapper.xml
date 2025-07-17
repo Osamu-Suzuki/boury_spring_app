@@ -6,7 +6,7 @@
 <mapper namespace="com.example.app.mapper.ItemMapper">
 
 
-	<select id="showItemList" resultType="com.example.app.dto.Item">
+	<select id="showItemList" resultType="com.example.app.dto.All">
 
 		select
 		IT.item_no,IT.item_name,IT.cost_price,SE.selling_price,ST.item_status
@@ -28,15 +28,7 @@
 		(#{itemNo},#{itemName},#{costPrice})
 
 	</insert>
-	<insert id="addItemSelling"
-		parameterType="com.example.app.dto.Item">
-
-		insert into T_SELLING(item_no,selling_price)
-		values
-		(#{itemNo},#{sellingPrice})
-
-	</insert>
-
+	
 	<delete id="deleteItem" parameterType="String">
 
 		delete from T_ITEM
@@ -44,46 +36,23 @@
 		item_no = #{itemNo}
 
 	</delete>
-	<delete id="deleteItemSelling" parameterType="String">
-
-		delete from
-		T_SELLING
+	
+	<update id="chageItemName" parameterType="com.example.app.dto.Item">
+		
+		update T_ITEM
+		set item_name = #{itemName}
 		where item_no = #{itemNo}
-
-	</delete>
-
-	<!-- T_ITEMテーブルの更新 -->
-	<update id="chageItemInfo"
-		parameterType="com.example.app.dto.Item">
-		UPDATE
-		T_ITEM
-		<set>
-			<!-- itemNameがnullでも空文字でもない場合だけ更新 -->
-			<if test="itemName != null and itemName != ''">
-				item_name = #{itemName},
-			</if>
-			<!-- costPriceがnullではない場合だけ更新 -->
-			<if test="costPrice != null">
-				cost_price = #{costPrice},
-			</if>
-		</set>
-		WHERE
-		item_no = #{itemNo}
+		
+	</update>
+	
+	<update id="chageItemCostPrice" parameterType="com.example.app.dto.Item">
+		
+		update T_ITEM
+		set cost_price = #{costPrice}
+		where item_no = #{itemNo}
+		
 	</update>
 
-	<!-- T_SELLINGテーブルの更新 -->
-	<update id="chageSellingInfo"
-		parameterType="com.example.app.dto.Item">
-		UPDATE
-		T_SELLING
-		<set>
-			<!-- sellingPriceがnullではない場合だけ更新 -->
-			<if test="sellingPrice != null">
-				selling_price = #{sellingPrice},
-			</if>
-		</set>
-		WHERE
-		item_no = #{itemNo}
-	</update>
+	
 
 </mapper>
