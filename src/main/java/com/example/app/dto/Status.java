@@ -5,10 +5,9 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-public class Item {
+public class Status {
 	
 	private String itemNo;
-	private String itemName;
-	private Integer costPrice;
+	private String itemStatus;
 	
 }

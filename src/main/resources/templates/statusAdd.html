@@ -23,21 +23,12 @@
 		<input type="submit" value="登録"/>
 	</form>
 	
-	<h2>販売状況ステータス変更</h2>
+	<a href="/home">
+		<button>ホーム</button>
+	</a>
+	<a href="/list">
+		<button>一覧</button>
+	</a>
 	
-	<form action="/changestatus" method="post">
-			<label for="">商品番号</label>
-			<input type="text" name="itemNo"/>
-		<fieldset>
-			<legend>販売状況を登録</legend>		
-		    <input type="radio" id="sellingChoice1" name="itemStatus" value="在庫"/>
-		    <label for="sellingChoice1">在庫</label>
-		    <input type="radio" id="sellingChoice2" name="itemStatus" value="販売中"/>
-		    <label for="sellingChoice2">販売中</label>
-		    <input type="radio" id="sellingChoice3" name="itemStatus" value="販売済"/>
-		    <label for="sellingChoice3">販売済</label>
-		</fieldset>
-		<input type="submit" value="登録"/>
-	</form>
 </body>
 </html>
