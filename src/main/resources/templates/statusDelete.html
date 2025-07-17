@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>delete</title>
+</head>
+<body>
+	
+	<form action="/deletestatus" method="post">
+		<label>削除対象の商品番号</label>
+		<input type="text" name="itemNo"/>
+		<input type="submit" value="削除"/>
+	</form>
+
+	<a href="/home">
+		<button>ホーム</button>
+	</a>
+	<a href="/list">
+		<button>一覧</button>
+	</a>
+	
+</body>
+</html>

@@ -8,9 +8,9 @@
 		
 	<insert id="addStatusToDatabase" parameterType="com.example.app.dto.Status">
 	
-		update T_STATUS
-		set item_status = #{itemStatus}
-		where item_no = #{itemNo}
+		insert into T_STATUS(item_no,item_status)
+		values
+		(#{itemNo},#{itemStatus})
 	
 	</insert>
 	
