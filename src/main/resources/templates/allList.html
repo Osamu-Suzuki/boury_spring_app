@@ -8,6 +8,7 @@
 	<table>
 	
 		<tr>
+			<th>商品詳細</th>
 			<th>商品番号</th>
 			<th>商品名</th>
 			<th>原価</th>
@@ -15,6 +16,7 @@
 			<th>販売状況</th>
 		</tr>
 		<tr th:each="item : ${showItems}">
+		    <td> <a th:href="@{/detail/{itemNo}(itemNo = ${item.itemNo})}">詳細</a></td>
 		    <td th:text="${item.itemNo}"></td>
             <td th:text="${item.itemName}"></td>
             <td th:text="${item.costPrice}"></td>
@@ -26,6 +28,9 @@
 	
 	<a href="/home">
 		<button>ホーム</button>
+	</a>
+	<a href="/showitemadd">
+		<button>商品登録</button>
 	</a>
 	
 	
