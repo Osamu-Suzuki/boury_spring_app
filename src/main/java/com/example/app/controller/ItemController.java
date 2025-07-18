@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.app.dto.All;
 import com.example.app.dto.Item;
@@ -26,6 +28,15 @@ public class ItemController {
 		List<All> showItems = itemMapper.showItemList();
 		model.addAttribute("showItems", showItems);
 		return "allList";
+	}
+	
+	// 商品詳細ページを表示
+	@GetMapping("/detail/{itemNo}")
+	public String showDetail(Model model,
+		@PathVariable String itemNo) {
+		All all = itemMapper.showItemDetailByItemNo(itemNo);
+		model.addAttribute(all);
+		return "itemDetail";
 	}
 
 	// 商品の追加
@@ -49,14 +60,19 @@ public class ItemController {
 	// 商品情報の変更
 	@PostMapping("/changeitem")
 	public String changeItemData(Model model,
-		@ModelAttribute Item item) {
-		if(item.getItemName() != null) {
-			itemMapper.chageItemName(item);				
+		@ModelAttribute Item item,
+		RedirectAttributes redirectAttributes) {
+		if(item.getItemName() != null && item.getItemName() !="") {
+			itemMapper.changeItemName(item);				
 		}
 		if(item.getCostPrice() != null) {
-			itemMapper.chageItemCostPrice(item);						
+			itemMapper.changeItemCostPrice(item);						
 		}
+		
+		// itemが持つitemNoをリダイレクトをリダイレクト先に必要なURLの一部として渡す
+		redirectAttributes.addAttribute("itemNo",item.getItemNo());
+		
 		//	リダイレクト：一覧表示ページへ
-		return "redirect:/list";
+		return "redirect:/detail/{itemNo}";
 	}
 }
