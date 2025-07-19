@@ -54,6 +54,13 @@
 			<input type="submit" value="変更"/>
 		</form>
 		
+	<h2>販売価格の削除</h2>	
+		
+		<form action="/deleteselling" method="post">
+			<input type="text" name="itemNo" th:value="${all.itemNo}" style="display: none"/>
+		<input type="submit" value="削除"/>
+	</form>
+		
 	<h2>販売状況の登録</h2>
 	
 	<form action="/addstatus" method="post">
@@ -70,12 +77,12 @@
 		<input type="submit" value="登録"/>
 	</form>
 	
-	<h2>販売状況ステータス変更</h2>
+	<h2>販売状況変更</h2>
 	
 	<form action="/changestatus" method="post">
 			<input type="text" name="itemNo" th:value="${all.itemNo}" style="display: none"/>
 		<fieldset>
-			<legend>販売状況を登録</legend>		
+			<legend>販売状況を変更</legend>		
 		    <input type="radio" id="sellingChoice1" name="itemStatus" value="在庫"/>
 		    <label for="sellingChoice1">在庫</label>
 		    <input type="radio" id="sellingChoice2" name="itemStatus" value="販売中"/>
@@ -85,6 +92,8 @@
 		</fieldset>
 		<input type="submit" value="登録"/>
 	</form>
+	
+	<h2>販売状況を削除</h2>
 	
 	<form action="/deletestatus" method="post">
 			<input type="text" name="itemNo" th:value="${all.itemNo}" style="display: none"/>
@@ -103,7 +112,6 @@
 	<a href="/list">
 		<button>一覧表示</button>
 	</a>
-	
 	
 </body>
 </html>
