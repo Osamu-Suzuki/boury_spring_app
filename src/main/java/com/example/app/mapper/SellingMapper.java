@@ -14,6 +14,6 @@ public interface SellingMapper {
 	public void deleteSelling(String itemNo);
 	
 	// 商品の販売価格変更
-	public void chageSelling(Selling selling);
+	public void changeSelling(Selling selling);
 	
 }
