@@ -12,6 +12,12 @@ public interface ItemMapper {
 	
 	//  商品一覧表示
 	public List<All> showItemList();
+
+	//  販売価格が未登録の商品のみ表示
+	public List<All> showNoSellingItemList();
+	
+	//  販売状況が未登録の商品のみ表示
+	public List<All> showNoStatusItemList();
 	
 	//	商品詳細表示
 	public All showItemDetailByItemNo(String itemNo);

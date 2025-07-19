@@ -29,30 +29,56 @@ public class ItemController {
 		model.addAttribute("showItems", showItems);
 		return "allList";
 	}
+	// 販売価格が未登録の商品のみ表示
+	@GetMapping("/nosellinglist")
+	public String showNoSellingList(Model model) {
+		List<All> showNoSellingItems = itemMapper.showNoSellingItemList();
+		model.addAttribute("showNoSellingItems", showNoSellingItems);
+		return "allNoSellingList";
+	}
+	
+	// 販売状況が未登録の商品のみ表示
+	@GetMapping("/nostatuslist")
+	public String showNoStatusList(Model model) {
+		List<All> showNoStatusItems = itemMapper.showNoStatusItemList();
+		model.addAttribute("showNoStatusItems", showNoStatusItems);
+		return "allNoStatusList";
+	}
 	
 	// 商品詳細ページを表示
 	@GetMapping("/detail/{itemNo}")
 	public String showDetail(Model model,
 		@PathVariable String itemNo) {
+		
 		All all = itemMapper.showItemDetailByItemNo(itemNo);
 		model.addAttribute(all);
+		
 		return "itemDetail";
 	}
 
 	// 商品の追加
 	@PostMapping("/additem")
-	public String addItemToDatabase(Model model, @ModelAttribute Item item) {
+	public String addItemToDatabase(Model model,
+			@ModelAttribute Item item,
+			RedirectAttributes redirectAttributes) {
+		
 		// 在庫商品登録
 		itemMapper.addItem(item);
-		// リダイレクト：一覧表示ページへ
-		return "redirect:/list";
+		
+		// itemが持つitemNoをリダイレクトをリダイレクト先に必要なURLの一部として渡す
+		redirectAttributes.addAttribute("itemNo",item.getItemNo());
+		
+		// リダイレクト：個別商品詳細表示ページへ
+		return "redirect:/detail/{itemNo}";
 	}
 
 	// 商品情報の取消
 	@PostMapping("/deleteitem")
 	public String deleteItemFromDatabase(Model model,
 		@RequestParam String itemNo) {
+		
 		itemMapper.deleteItem(itemNo);
+		
 		//	リダイレクト：一覧表示ページへ
 		return "redirect:/list";
 	}
@@ -62,6 +88,7 @@ public class ItemController {
 	public String changeItemData(Model model,
 		@ModelAttribute Item item,
 		RedirectAttributes redirectAttributes) {
+		
 		if(item.getItemName() != null && item.getItemName() !="") {
 			itemMapper.changeItemName(item);				
 		}
@@ -72,7 +99,7 @@ public class ItemController {
 		// itemが持つitemNoをリダイレクトをリダイレクト先に必要なURLの一部として渡す
 		redirectAttributes.addAttribute("itemNo",item.getItemNo());
 		
-		//	リダイレクト：一覧表示ページへ
+		// リダイレクト：個別商品詳細表示ページへ
 		return "redirect:/detail/{itemNo}";
 	}
 }
