@@ -14,6 +14,38 @@ left join T_STATUS ST
 on IT.item_no = ST.item_no
 order by IT.item_no;
 
+select文2
+
+select IT.item_no,IT.item_name,IT.cost_price,SE.selling_price,ST.item_status
+from T_ITEM IT
+left join T_SELLING SE
+on IT.item_no = SE.item_no
+left join T_STATUS ST
+on IT.item_no = ST.item_no
+where IT.item_no = 'A001';
+
+select文3
+
+select IT.item_no,IT.item_name,IT.cost_price,SE.selling_price,ST.item_status
+from T_ITEM IT
+left join T_SELLING SE
+on IT.item_no = SE.item_no
+left join T_STATUS ST
+on IT.item_no = ST.item_no
+where SE.selling_price is null
+order by IT.item_no;
+
+select文4
+
+select IT.item_no,IT.item_name,IT.cost_price,SE.selling_price,ST.item_status
+from T_ITEM IT
+left join T_SELLING SE
+on IT.item_no = SE.item_no
+left join T_STATUS ST
+on IT.item_no = ST.item_no
+where ST.item_status is null
+order by IT.item_no;
+
 insert文1
 
 insert into T_ITEM(item_no,item_name,cost_price)
