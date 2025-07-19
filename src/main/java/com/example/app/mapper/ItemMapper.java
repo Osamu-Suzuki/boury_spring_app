@@ -12,18 +12,27 @@ public interface ItemMapper {
 	
 	//  商品一覧表示
 	public List<All> showItemList();
+
+	//  販売価格が未登録の商品のみ表示
+	public List<All> showNoSellingItemList();
+	
+	//  販売状況が未登録の商品のみ表示
+	public List<All> showNoStatusItemList();
+	
+	//	商品詳細表示
+	public All showItemDetailByItemNo(String itemNo);
 	
 	//	商品追加
-	public void addItem(Item item) ;
+	public void addItem(Item item);
 	
 	//	商品取消
 	public void deleteItem(String itemNo);
 	
 	//  商品名変更
-	public void chageItemName(Item item);	
+	public void changeItemName(Item item);	
 
 	//  商品原価変更
-	public void chageItemCostPrice(Item item);
+	public void changeItemCostPrice(Item item);
 
 	
 }

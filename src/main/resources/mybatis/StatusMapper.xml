@@ -16,7 +16,7 @@
 	
 	<delete id="deleteStatus" parameterType="String">
 	
-		update T_STATUS
+		delete T_STATUS
 		where item_no = #{itemNo}
 	
 	</delete>

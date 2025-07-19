@@ -15,7 +15,7 @@
 			<th>販売価格</th>
 			<th>販売状況</th>
 		</tr>
-		<tr th:each="item : ${showItems}">
+		<tr th:each="item : ${showNoStatusItems}">
 		    <td> <a th:href="@{/detail/{itemNo}(itemNo = ${item.itemNo})}">詳細</a></td>
 		    <td th:text="${item.itemNo}"></td>
             <td th:text="${item.itemName}"></td>
