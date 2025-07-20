@@ -1,0 +1,39 @@
+@charset"UTF-8";
+
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	width:100%;
+	height:auto;
+}
+
+header,footer{
+	height:10vh;
+	background-color:green;
+	display:grid;
+	place-items:center;
+}
+
+main{
+	height:80vh;
+	display:grid;
+	place-items:center;
+}
+
+footer button{
+	height:50px;
+	width:150px;
+	font-weight:bold;
+}
+
+.item_add_button{
+	height:50px;
+	display:grid;
+	place-items:center;
+}
+
+
+
