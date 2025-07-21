@@ -42,6 +42,11 @@ item_add_button{
 	display:none;
 }
 
+.warning{
+	font-weight:bold;
+	color:red;
+}
+
 
 
 
