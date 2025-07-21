@@ -23,17 +23,32 @@ main{
 	place-items:center;
 }
 
-footer button{
+footer button,
+item_add_button{
 	height:50px;
 	width:150px;
 	font-weight:bold;
 }
 
-.item_add_button{
-	height:50px;
+.item_add{
 	display:grid;
 	place-items:center;
 }
+
+#change_item_info,
+#change_selling_price,
+#change_item_status,
+#delete_item_all_info{
+	display:none;
+}
+
+.warning{
+	font-weight:bold;
+	color:red;
+}
+
+
+
 
 
 
