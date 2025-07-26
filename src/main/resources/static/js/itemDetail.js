@@ -45,6 +45,7 @@ deleteButton.addEventListener('click', function() {
 
 // 2.ボタンをクリックすると表示されていた入力フォームが閉じる
 
+// ボタン
 const closeItemInfo = document.getElementById("close_item_info");
 const closeSellingPrice = document.getElementById("close_selling_price");
 const closeItemStatus = document.getElementById("close_item_status");

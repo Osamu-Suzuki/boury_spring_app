@@ -5,6 +5,7 @@
 <title>detail</title>
 <!-- 詳細ページに関してはMappingの階層が他と異なるため、スタイルシート読み込みの記述に注意 -->
 <link rel="stylesheet" th:href="@{/css/common.css}" />
+<link rel="stylesheet" th:href="@{/css/sp.css}" />
 </head>
 <body>
 	<header>
@@ -13,8 +14,7 @@
 	<main>
 		<div class="item_info">
 			<div class="detail_contents">
-				<table>
-
+				<table border="1">
 					<tr>
 						<th>商品番号</th>
 						<th>商品名</th>
@@ -161,9 +161,9 @@
 	<footer>
 		<div class="buttons">
 			<a href="/home">
-				<button>ホーム</button>
+				<button class="button">ホーム</button>
 			</a> <a href="/list">
-				<button>一覧表示</button>
+				<button class="button">一覧表示</button>
 			</a>
 		</div>
 	</footer>
