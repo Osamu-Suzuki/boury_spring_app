@@ -44,7 +44,7 @@
 
 			<div id="change_item_info">
 
-				<h2>商品登録内容変更</h2>
+				<h3>商品登録内容変更</h3>
 				<form action="/changeitem" method="post">
 					<input type="text" name="itemNo" th:value="${all.itemNo}"
 						style="display: none" /> <label>商品名</label> <input type="text"
@@ -56,7 +56,7 @@
 
 			<div id="change_selling_price">
 				<div th:if="${#lists.isEmpty(all.sellingPrice)}">
-					<h2>販売価格の登録</h2>
+					<h3>販売価格の登録</h3>
 
 					<form action="/addselling" method="post">
 						<input type="text" name="itemNo" th:value="${all.itemNo}"
@@ -67,7 +67,7 @@
 				</div>
 
 				<div th:if="${not #lists.isEmpty(all.sellingPrice)}">
-					<h2>販売価格の変更</h2>
+					<h3>販売価格の変更</h3>
 
 					<form action="/changeselling" method="post">
 						<input type="text" name="itemNo" th:value="${all.itemNo}"
@@ -75,7 +75,7 @@
 							name="sellingPrice" /> <input type="submit" value="変更" />
 					</form>
 
-					<h2>販売価格の削除</h2>
+					<h3>販売価格の削除</h3>
 
 					<form action="/deleteselling" method="post">
 						<input type="text" name="itemNo" th:value="${all.itemNo}"
@@ -88,7 +88,7 @@
 
 			<div id="change_item_status">
 				<div th:if="${#lists.isEmpty(all.itemStatus)}">
-					<h2>販売状況の登録</h2>
+					<h3>販売状況の登録</h3>
 
 					<form action="/addstatus" method="post">
 						<input type="text" name="itemNo" th:value="${all.itemNo}"
@@ -107,7 +107,7 @@
 				</div>
 
 				<div th:if="${not #lists.isEmpty(all.itemStatus)}">
-					<h2>販売状況変更</h2>
+					<h3>販売状況変更</h3>
 
 					<form action="/changestatus" method="post">
 						<input type="text" name="itemNo" th:value="${all.itemNo}"
@@ -124,7 +124,7 @@
 						<input type="submit" value="登録" />
 					</form>
 
-					<h2>販売状況を削除</h2>
+					<h3>販売状況を削除</h3>
 
 					<form action="/deletestatus" method="post">
 						<input type="text" name="itemNo" th:value="${all.itemNo}"
@@ -138,7 +138,7 @@
 			<div id="delete_item_all_info">
 				<div
 					th:if="${#lists.isEmpty(all.sellingPrice) and #lists.isEmpty(all.itemStatus)}">
-					<h2>商品削除</h2>
+					<h3>商品削除</h3>
 					<form action="/deleteitem" method="post">
 						<input type="text" name="itemNo" th:value="${all.itemNo}"
 							style="display: none" /> <input type="submit" value="この商品を削除" />
