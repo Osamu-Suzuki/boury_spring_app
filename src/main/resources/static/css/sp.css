@@ -1,0 +1,20 @@
+@charset "UTF-8";
+@media screen and (max-width: 748px){
+	body{
+		font-size: 12px;
+	}
+	
+	.home_buttons{
+		height: 80%;
+		display: flex;
+		justify-content: space-around;
+		flex-direction: column;
+	}
+	
+	.button{
+	height:30px;
+	width:100px;
+	font-weight:bold;
+}
+	
+}

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>list</title>
 <link rel="stylesheet" th:href="@{css/common.css}" />
+<link rel="stylesheet" th:href="@{css/sp.css}" />
 </head>
 <body>
 	<header>
@@ -11,7 +12,7 @@
 	</header>
 	<main>
 		<div th:if="${not #lists.isEmpty(showNoStatusItems)}">
-			<table>
+			<table border="1">
 
 				<tr>
 					<th>商品詳細</th>
@@ -36,11 +37,11 @@
 	<footer>
 		<div class="buttons">
 			<a href="/home">
-				<button>ホーム</button>
+				<button class="button">ホーム</button>
 			</a> <a href="/list">
-				<button>一覧表示</button>
+				<button class="button">一覧表示</button>
 			</a> <a href="/showitemadd">
-				<button>商品登録</button>
+				<button class="button">商品登録</button>
 			</a>
 		</div>
 	</footer>

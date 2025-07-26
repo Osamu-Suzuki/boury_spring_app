@@ -18,13 +18,21 @@ header,footer{
 }
 
 main{
+	margin: 0 10px;
 	height:80vh;
 	display:grid;
 	place-items:center;
 }
 
-footer button,
-item_add_button{
+.item_info{
+	height: 100%;
+}
+
+table{
+	max-height:100%;
+}
+
+.button{
 	height:50px;
 	width:150px;
 	font-weight:bold;
@@ -40,6 +48,12 @@ item_add_button{
 #change_item_status,
 #delete_item_all_info{
 	display:none;
+}
+
+.detail_contents{
+	display: grid;
+	place-items: center;
+	height: 30%;
 }
 
 .warning{
