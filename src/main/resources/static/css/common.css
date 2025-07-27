@@ -1,68 +1,92 @@
-@charset"UTF-8";
+@charset "UTF-8";
 
-*{
-	margin:0;
-	padding:0;
+* {
+	margin: 0;
+	padding: 0;
 }
 
-body{
-	width:100%;
-	height:auto;
+body {
+	width: 100%;
+	height: auto;
 }
 
-header,footer{
-	height:10vh;
-	background-color:green;
-	display:grid;
-	place-items:center;
+header, footer {
+	height: 10vh;
+	background-color: green;
+	display: grid;
+	place-items: center;
 }
 
-main{
-	margin: 0 10px;
-	height:80vh;
-	display:grid;
-	place-items:center;
+main {
+	height: 80vh;
+	display: grid;
+	place-items: center;
 }
 
-.item_info{
+.item_info {
+	width: auto;
 	height: 100%;
+	overflow-y: auto;
 }
 
-table{
-	max-height:100%;
+.list_heading {
+	position: sticky; /* 要素をスクロールコンテナ内で固定 */
+	top: 0; /* コンテナの上端から0pxの位置に固定 */
+	background-color: white; /* スクロール時に下の内容が透けないように背景色を指定 */
 }
 
-.button{
-	height:50px;
-	width:150px;
-	font-weight:bold;
+table {
+	max-height: 100%;
 }
 
-.item_add{
-	display:grid;
-	place-items:center;
+.button {
+	height: 50px;
+	width: 150px;
+	font-weight: bold;
 }
 
-#change_item_info,
-#change_selling_price,
-#change_item_status,
-#delete_item_all_info{
-	display:none;
+.item_add {
+	display: grid;
+	place-items: center;
 }
 
-.detail_contents{
+#change_item_info, #change_selling_price, #change_item_status,
+	#delete_item_all_info {
+	display: none;
+	text-align: center;
+	height: auto;
+}
+
+.item_info_table, .selling_price_table {
+	margin: 0 auto;
+}
+
+.change_buttons {
+	margin: 0 auto;
+	width: 300px;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+}
+
+.change_buttons h3, .add_button, .change_button, .close_button {
+	margin: 10px;
+}
+
+.detail_contents {
 	display: grid;
 	place-items: center;
 	height: 30%;
 }
 
-.warning{
-	font-weight:bold;
-	color:red;
+.warning {
+	font-weight: bold;
+	color: red;
+	margin: 10px;
 }
 
-
-
-
-
+.item_add_form{
+	display: grid;
+	place-items: center;
+}
 

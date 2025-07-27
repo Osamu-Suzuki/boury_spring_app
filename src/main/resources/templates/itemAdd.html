@@ -2,6 +2,7 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>add</title>
 <link rel="stylesheet" th:href="@{css/common.css}" />
 <link rel="stylesheet" th:href="@{css/sp.css}" />
@@ -11,37 +12,43 @@
 		<h1>新規商品追加</h1>
 	</header>
 	<main>
-	<div class="item_info">
-	<form action="/additem" method="post">
-		<table>
-		<tr>
-		<th><label>商品番号</label></th>
-		<th><label>商品名</label></th>
-		<th><label>原価</label></th>
-		</tr>
-		
-		<tr>
-		<td><input type="text" name="itemNo" /></td>
-		<td><input type="text" name="itemName" /></td>
-		<td><input type="text" name="costPrice" /></td>
-		</tr>
-		</table>
-		<div class="item_add">
-		<input type="submit" value="登録" class="item_add_button"/>
-		</div>
-	</form>
+		<div class="item_info item_add_form">
+			<form action="/additem" method="post">
+				<table border="1">
+					<tr>
+						<th>商品番号</th>
+					</tr>
+					<tr>
+						<td><input type="text" name="itemNo" /></td>
+					</tr>
+					<tr>
+						<th>商品名</th>
+					</tr>
+					<tr>
+						<td><input type="text" name="itemName" /></td>
+					</tr>	
+					<tr>
+						<th>原価</th>
+					</tr>					
+					<tr>
+						<td><input type="text" name="costPrice" /></td>
+					</tr>
+				</table>
+				<div class="item_add">
+					<input type="submit" value="登録" class="item_add_button add_button"/>
+				</div>
+			</form>
 
-	</div>
+		</div>
 	</main>
 	<footer>
-	<div class="buttons">
-	<a href="/home">
-		<button class="button">ホーム</button>
-	</a>
-	<a href="/list">
-		<button class="button">一覧</button>
-	</a>
-	</div>
+		<div class="buttons">
+			<a href="/home">
+				<button class="button">ホーム</button>
+			</a> <a href="/list">
+				<button class="button">一覧</button>
+			</a>
+		</div>
 	</footer>
 </body>
 </html>
