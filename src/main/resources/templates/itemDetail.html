@@ -37,121 +37,146 @@
 			<div class="change_buttons">
 
 				<button id="item_button">商品名・原価変更</button>
+				<div id="change_item_info">
+
+					<h3>商品登録内容変更</h3>
+					<form action="/changeitem" method="post">
+						<input type="text" name="itemNo" th:value="${all.itemNo}"
+							style="display: none" />
+						<table border="1" class="item_info_table">
+							<tr>
+								<th>商品名</th>
+							</tr>
+							<tr>
+								<td><input type="text" name="itemName" /></td>
+							</tr>
+							<tr>
+								<th>原価</th>
+							</tr>
+							<tr>
+								<td><input type="text" name="costPrice" /></td>
+							</tr>
+						</table>
+
+						<input type="submit" value="変更" class="change_button"/>
+
+					</form>
+					<button id="close_item_info" class="close_button">閉じる</button>
+				</div>
+
 				<button id="selling_button">販売価格登録・変更</button>
+				<div id="change_selling_price">
+					<div th:if="${#lists.isEmpty(all.sellingPrice)}">
+						<h3>販売価格の登録</h3>
+
+						<form action="/addselling" method="post">
+							<input type="text" name="itemNo" th:value="${all.itemNo}"
+								style="display: none" />
+
+							<table border="1" class="selling_price_table">
+								<tr>
+									<th>販売価格</th>
+								</tr>
+								<tr>
+									<td><input type="text" name="sellingPrice" /></td>
+								</tr>
+							</table>
+
+							<input type="submit" value="登録" class="add_button"/>
+						</form>
+					</div>
+
+					<div th:if="${not #lists.isEmpty(all.sellingPrice)}">
+						<h3>販売価格の変更</h3>
+
+						<form action="/changeselling" method="post">
+							<input type="text" name="itemNo" th:value="${all.itemNo}"
+								style="display: none" />
+							<table border="1" class="selling_price_table">
+								<tr>
+									<th>販売価格</th>
+								</tr>
+								<tr>
+									<td><input type="text" name="sellingPrice" /></td>
+								</tr>
+							</table>
+							<input type="submit" value="変更" class="change_button"/>
+						</form>
+
+						<h3>販売価格の削除</h3>
+
+						<form action="/deleteselling" method="post">
+							<input type="text" name="itemNo" th:value="${all.itemNo}"
+								style="display: none" /> <input type="submit" value="削除" class="change_button"/>
+						</form>
+
+						<button id="close_selling_price" class="close_button">閉じる</button>
+					</div>
+				</div>
 				<button id="status_button">販売状況登録・変更</button>
-				<button id="delete_item_button">登録情報削除</button>
+				<div id="change_item_status">
+					<div th:if="${#lists.isEmpty(all.itemStatus)}">
+						<h3>販売状況の登録</h3>
 
-			</div>
-
-			<div id="change_item_info">
-
-				<h3>商品登録内容変更</h3>
-				<form action="/changeitem" method="post">
-					<input type="text" name="itemNo" th:value="${all.itemNo}"
-						style="display: none" /> <label>商品名</label> <input type="text"
-						name="itemName" /> <label>原価</label> <input type="text"
-						name="costPrice" /> <input type="submit" value="変更" />
-				</form>
-				<button id="close_item_info">閉じる</button>
-			</div>
-
-			<div id="change_selling_price">
-				<div th:if="${#lists.isEmpty(all.sellingPrice)}">
-					<h3>販売価格の登録</h3>
-
-					<form action="/addselling" method="post">
-						<input type="text" name="itemNo" th:value="${all.itemNo}"
-							style="display: none" /> <label for="">販売価格</label> <input
-							type="text" name="sellingPrice" /> <input type="submit"
-							value="登録" />
-					</form>
-				</div>
-
-				<div th:if="${not #lists.isEmpty(all.sellingPrice)}">
-					<h3>販売価格の変更</h3>
-
-					<form action="/changeselling" method="post">
-						<input type="text" name="itemNo" th:value="${all.itemNo}"
-							style="display: none" /> <label>販売価格</label> <input type="text"
-							name="sellingPrice" /> <input type="submit" value="変更" />
-					</form>
-
-					<h3>販売価格の削除</h3>
-
-					<form action="/deleteselling" method="post">
-						<input type="text" name="itemNo" th:value="${all.itemNo}"
-							style="display: none" /> <input type="submit" value="削除" />
-					</form>
-
-					<button id="close_selling_price">閉じる</button>
-				</div>
-			</div>
-
-			<div id="change_item_status">
-				<div th:if="${#lists.isEmpty(all.itemStatus)}">
-					<h3>販売状況の登録</h3>
-
-					<form action="/addstatus" method="post">
-						<input type="text" name="itemNo" th:value="${all.itemNo}"
-							style="display: none" />
-						
-							<input type="radio" id="sellingChoice1" name="itemStatus"
-								value="在庫" /> <label for="sellingChoice1">在庫</label> <input
-								type="radio" id="sellingChoice2" name="itemStatus" value="販売中" />
-							<label for="sellingChoice2">販売中</label> <input type="radio"
+						<form action="/addstatus" method="post">
+							<input type="text" name="itemNo" th:value="${all.itemNo}"
+								style="display: none" /> <input type="radio"
+								id="sellingChoice1" name="itemStatus" value="在庫" /> <label
+								for="sellingChoice1">在庫</label> <input type="radio"
+								id="sellingChoice2" name="itemStatus" value="販売中" /> <label
+								for="sellingChoice2">販売中</label> <input type="radio"
 								id="sellingChoice3" name="itemStatus" value="販売済" /> <label
-								for="sellingChoice3">販売済</label>
-						
-						<input type="submit" value="登録" />
-					</form>
-				</div>
+								for="sellingChoice3">販売済</label> <input type="submit" value="登録" class="add_button"/>
+						</form>
+					</div>
 
-				<div th:if="${not #lists.isEmpty(all.itemStatus)}">
-					<h3>販売状況変更</h3>
+					<div th:if="${not #lists.isEmpty(all.itemStatus)}">
+						<h3>販売状況変更</h3>
 
-					<form action="/changestatus" method="post">
-						<input type="text" name="itemNo" th:value="${all.itemNo}"
-							style="display: none" />
-	
-							<input type="radio" id="sellingChoice1" name="itemStatus"
-								value="在庫" /> <label for="sellingChoice1">在庫</label> <input
-								type="radio" id="sellingChoice2" name="itemStatus" value="販売中" />
-							<label for="sellingChoice2">販売中</label> <input type="radio"
+						<form action="/changestatus" method="post">
+							<input type="text" name="itemNo" th:value="${all.itemNo}"
+								style="display: none" /> <input type="radio"
+								id="sellingChoice1" name="itemStatus" value="在庫" /> <label
+								for="sellingChoice1">在庫</label> <input type="radio"
+								id="sellingChoice2" name="itemStatus" value="販売中" /> <label
+								for="sellingChoice2">販売中</label> <input type="radio"
 								id="sellingChoice3" name="itemStatus" value="販売済" /> <label
-								for="sellingChoice3">販売済</label>
-						
-						<input type="submit" value="登録" />
-					</form>
+								for="sellingChoice3">販売済</label> <br> <input type="submit"
+								value="変更" class="change_button"/>
+						</form>
 
-					<h3>販売状況を削除</h3>
+						<h3>販売状況を削除</h3>
 
-					<form action="/deletestatus" method="post">
-						<input type="text" name="itemNo" th:value="${all.itemNo}"
-							style="display: none" /> <input type="submit" value="削除" />
-					</form>
+						<form action="/deletestatus" method="post">
+							<input type="text" name="itemNo" th:value="${all.itemNo}"
+								style="display: none" /> <input type="submit" value="削除" class="change_button"/>
+						</form>
 
-					<button id="close_item_status">閉じる</button>
+						<button id="close_item_status" class="close_button">閉じる</button>
+					</div>
 				</div>
-			</div>
 
-			<div id="delete_item_all_info">
-				<div
-					th:if="${#lists.isEmpty(all.sellingPrice) and #lists.isEmpty(all.itemStatus)}">
-					<h3>商品削除</h3>
-					<form action="/deleteitem" method="post">
-						<input type="text" name="itemNo" th:value="${all.itemNo}"
-							style="display: none" /> <input type="submit" value="この商品を削除" />
-					</form>
+				<button id="delete_item_button">商品情報削除</button>
+				<div id="delete_item_all_info">
+					<div
+						th:if="${#lists.isEmpty(all.sellingPrice) and #lists.isEmpty(all.itemStatus)}">
+						<h3>この商品を削除</h3>
+						<form action="/deleteitem" method="post">
+							<input type="text" name="itemNo" th:value="${all.itemNo}"
+								style="display: none" /> <input type="submit" value="この商品を削除" class="delete_button"/>
+						</form>
+					</div>
+
+					<div th:if="${not #lists.isEmpty(all.sellingPrice)}">
+						<p class="warning">先に販売価格を削除してください。</p>
+					</div>
+					<div th:if="${not #lists.isEmpty(all.itemStatus)}">
+						<p class="warning">先に販売状況を削除してください。</p>
+					</div>
+
+					<button id="close_delete_item" class="close_button">閉じる</button>
+
 				</div>
-				
-				<div th:if="${not #lists.isEmpty(all.sellingPrice)}">
-					<p class="warning">商品ごと削除する場合、先に販売価格を削除してください。</p>
-				</div>
-				<div th:if="${not #lists.isEmpty(all.itemStatus)}">
-					<p class="warning">商品ごと削除する場合、先に販売状況を削除してください。</p>
-				</div>
-				
-				<button id="close_delete_item">閉じる</button>
 
 			</div>
 
