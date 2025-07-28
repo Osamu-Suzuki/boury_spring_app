@@ -13,7 +13,7 @@
 	</header>
 	<main>
 		<div class="item_info item_add_form">
-			<form action="/additem" th:object="${'item'}" method="post">
+			<form action="/additem" th:object="${item}" method="post">
 				<table border="1">
 					<tr>
 						<th>商品番号</th>
@@ -21,7 +21,7 @@
 					<tr>
 						<td>
 						<input type="text" name="itemNo" th:field="*{itemNo}"/>
-						<div th:if="${#fields.hasErrors('itemNo')}" th:errors="*{itemNo}"></div>
+						<div class="warning" th:if="${#fields.hasErrors('itemNo')}" th:errors="*{itemNo}"></div>
 						</td>
 					</tr>
 					<tr>
@@ -30,7 +30,7 @@
 					<tr>
 						<td>
 						<input type="text" name="itemName" th:field="*{itemName}"/>
-						<div th:if="${#fields.hasErrors('itemName')}" th:errors="*{itemName}"></div>
+						<div class="warning" th:if="${#fields.hasErrors('itemName')}" th:errors="*{itemName}"></div>
 						</td>
 					</tr>	
 					<tr>
@@ -39,7 +39,7 @@
 					<tr>
 						<td>
 						<input type="text" name="costPrice" th:field="*{costPrice}"/>
-						<div th:if="${#fields.hasErrors('costPrice')}" th:errors="*{costPrice}"></div>
+						<div class="warning" th:if="${#fields.hasErrors('costPrice')}" th:errors="*{costPrice}"></div>
 						</td>
 					</tr>
 				</table>
