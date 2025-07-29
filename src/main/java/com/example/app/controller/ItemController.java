@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -59,8 +61,14 @@ public class ItemController {
 	// 商品の追加
 	@PostMapping("/additem")
 	public String addItemToDatabase(Model model,
-			@ModelAttribute Item item,
+			@Validated @ModelAttribute Item item,
+			BindingResult bindingResult,
 			RedirectAttributes redirectAttributes) {
+		
+		// 入力にエラーがある場合
+		if(bindingResult.hasErrors()) {
+			return "itemAdd";
+		}
 		
 		// 在庫商品登録
 		itemMapper.addItem(item);

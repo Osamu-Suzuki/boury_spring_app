@@ -80,9 +80,11 @@ table {
 }
 
 .warning {
+	font-size: 12px;
 	font-weight: bold;
 	color: red;
 	margin: 10px;
+	text-align: center;
 }
 
 .item_add_form{

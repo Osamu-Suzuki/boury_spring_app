@@ -23,7 +23,9 @@ public class SellingController {
 		@ModelAttribute Selling selling,
 		RedirectAttributes redirectAttributes) {
 		
+		if(selling.getSellingPrice()!=null) {
 		sellingMapper.addSellingToDatabase(selling);
+		}
 		
 		// itemが持つitemNoをリダイレクトをリダイレクト先に必要なURLの一部として渡す
 		redirectAttributes.addAttribute("itemNo",selling.getItemNo());
@@ -53,8 +55,9 @@ public class SellingController {
 		@ModelAttribute Selling selling,
 		RedirectAttributes redirectAttributes) {
 		
+		if(selling.getSellingPrice()!=null) {
 		sellingMapper.changeSelling(selling);
-		
+		}
 		// itemが持つitemNoをリダイレクトをリダイレクト先に必要なURLの一部として渡す
 		redirectAttributes.addAttribute("itemNo",selling.getItemNo());
 								

@@ -22,8 +22,9 @@ public class StatusController {
 		@ModelAttribute Status status,
 		RedirectAttributes redirectAttributes) {
 		
+		if(status.getItemStatus()!=null) {
 		statusMapper.addStatusToDatabase(status);
-		
+		}
 		// itemが持つitemNoをリダイレクトをリダイレクト先に必要なURLの一部として渡す
 		redirectAttributes.addAttribute("itemNo",status.getItemNo());
 								
@@ -50,8 +51,9 @@ public class StatusController {
 		@ModelAttribute Status status,
 		RedirectAttributes redirectAttributes) {
 		
+		if(status.getItemStatus()!=null) {
 		statusMapper.changeStatus(status);
-		
+		}
 		// itemが持つitemNoをリダイレクトをリダイレクト先に必要なURLの一部として渡す
 		redirectAttributes.addAttribute("itemNo",status.getItemNo());
 										
