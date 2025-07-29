@@ -1,7 +1,10 @@
 package com.example.app.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.app.dto.Item;
 
 @Controller
 public class HomeController {
@@ -14,7 +17,11 @@ public class HomeController {
 	
 	// 商品追加ページを表示
 	@GetMapping("/showitemadd")
-	public String showItemAddPage() {
+	public String showItemAddPage(Model model) {
+		// 商品情報を格納するためのItemオブジェクトを生成
+		Item item = new Item();
+		// モデルにItemオブジェクトを追加	
+		model.addAttribute("item", item);
 		return "itemAdd";
 	}
 	
